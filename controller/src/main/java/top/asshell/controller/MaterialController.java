@@ -1,5 +1,6 @@
 package top.asshell.controller;
 
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class MaterialController {
     private MaterialService service;
 
     @GetMapping("/getList")
-    public Result getList(MaterialDTO dto){
+    public Result<PageInfo<Material>> getList(MaterialDTO dto){
        return service.getList(dto);
     }
 

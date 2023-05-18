@@ -51,7 +51,7 @@ public class MaterialServiceImpl implements MaterialService {
     public Result<PageInfo<Material>> getList(MaterialDTO materialDTO) {
         PageHelper.startPage(materialDTO.getPageNum(),materialDTO.getPageSize());
         List<Material> list = mapper.getList(materialDTO);
-        PageInfo<Material> energyEfficiencyPageInfo = new PageInfo<>(list);
-        return Result.success(energyEfficiencyPageInfo);
+        PageInfo<Material> materialPageInfo = new PageInfo<>(list);
+        return Result.success(materialPageInfo);
     }
 }
