@@ -5,13 +5,11 @@ import top.asshell.common.result.Result;
 import top.asshell.dto.MaterialDTO;
 import top.asshell.pojo.Material;
 
-import java.util.List;
-
 public interface MaterialService {
     Result update (Material material);
-    Result delete (List<Integer> ids);
+    Result delete (Integer ids []);
 
     Result add (Material material);
 
-    Result<PageInfo<Material>> getListEnergyEfficiency (MaterialDTO materialDTO);
+    Result<PageInfo<Material>> getList(MaterialDTO materialDTO);
 }

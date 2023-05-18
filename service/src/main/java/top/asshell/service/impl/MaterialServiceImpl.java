@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import top.asshell.common.result.Result;
 import top.asshell.dao.MaterialMapper;
 import top.asshell.dto.MaterialDTO;
-import top.asshell.pojo.EnergyEfficiency;
 import top.asshell.pojo.Material;
 import top.asshell.service.MaterialService;
 
@@ -27,7 +26,7 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
-    public Result delete(List<Integer> ids) {
+    public Result delete(Integer[] ids) {
         Integer i=0;
         for (Integer id : ids) {
             i+=mapper.remove(id);
@@ -49,7 +48,7 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
-    public Result<PageInfo<Material>> getListEnergyEfficiency(MaterialDTO materialDTO) {
+    public Result<PageInfo<Material>> getList(MaterialDTO materialDTO) {
         PageHelper.startPage(materialDTO.getPageNum(),materialDTO.getPageSize());
         List<Material> list = mapper.getList(materialDTO);
         PageInfo<Material> energyEfficiencyPageInfo = new PageInfo<>(list);
