@@ -2,6 +2,7 @@ package top.asshell.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -45,4 +46,15 @@ public class SpringMVCConfig  extends WebMvcConfigurationSupport {
                 .description("接口文档")
                 .build();
     }
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*") // 允许的源（域名或IP），可以使用通配符 * 表示所有来源
+                .allowedMethods("*") // 允许的 HTTP 方法，例如 GET、POST、PUT，或使用 * 表示所有方法
+                .allowedHeaders("*") // 允许的请求头，或使用 * 表示所有头部信息
+                .allowCredentials(true) // 是否允许发送凭据信息（例如 Cookie、Authorization 头），如果需要携带凭据，则设置为 true
+                .maxAge(3600); // 预检请求的有效期，单位为秒
+    }
+
+
 }
