@@ -1,0 +1,32 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/bisai?characterEncodin=utf-8&serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    jedis:
+      pool:
+        max-idle: 4
+        max-wait: 5s
+        max-active: 8
+        min-idle: 0
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:top/asshell/dao/*Mapper.xml
+  type-aliases-package: top.asshell.pojo
+
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.asshell.dao.DeviceInformationMapper">
+
+    <select id="getList" resultType="top.asshell.pojo.DeviceInformation">
+        select * from DeviceInformation
+        <where>
+            <if test="name!=null">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="code!=null">
+                and name like "%"#{code}"%"
+            </if>
+            <if test="start!=null">
+                and #{start} &gt; produceDate and produceDate &lt; #{end}
+            </if>
+            <if test="productBatch!=null">
+                and name like "%"#{productBatch}"%"
+            </if>
+            <if test="manufacturer!=null">
+                and name like "%"#{manufacturer}"%"
+            </if>
+            <if test="deviceStatus!=null">
+                and name like "%"#{deviceStatus}"%"
+            </if>
+        </where>
+    </select>
+</mapper>
