@@ -41,7 +41,7 @@ public class SpringMVCConfig  extends WebMvcConfigurationSupport {
     }
     private ApiInfo apiInfo() {//接口文档信息
         return new ApiInfoBuilder()
-                .title("省赛测试")
+                .title("国赛测试")
                 .version("1.0")
                 .description("接口文档")
                 .build();
@@ -49,7 +49,7 @@ public class SpringMVCConfig  extends WebMvcConfigurationSupport {
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*") // 允许的源（域名或IP），可以使用通配符 * 表示所有来源
+                .allowedOriginPatterns("*") // 允许的源（域名或IP），可以使用通配符 * 表示所有来源
                 .allowedMethods("*") // 允许的 HTTP 方法，例如 GET、POST、PUT，或使用 * 表示所有方法
                 .allowedHeaders("*") // 允许的请求头，或使用 * 表示所有头部信息
                 .allowCredentials(true) // 是否允许发送凭据信息（例如 Cookie、Authorization 头），如果需要携带凭据，则设置为 true
