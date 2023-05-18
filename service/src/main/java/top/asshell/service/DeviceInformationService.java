@@ -8,4 +8,9 @@ import top.asshell.pojo.DeviceInformation;
 public interface DeviceInformationService {
     Result<PageInfo<DeviceInformation>> getList(DeviceInformationDTO dto);
 
+    Result update(DeviceInformation deviceInformation);
+
+    Result del (Integer ids []);
+
+    Result add(DeviceInformation deviceInformation);
 }

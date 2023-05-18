@@ -11,4 +11,10 @@ public interface DeviceInformationMapper {
 
     List<DeviceInformation> getList (DeviceInformationDTO informationDTO);
 
+    Integer save (DeviceInformation deviceInformation);
+
+    Integer remove (Integer id);
+
+    Integer update(DeviceInformation deviceInformation);
+
 }
