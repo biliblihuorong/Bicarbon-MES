@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.asshell.dao.MaterialMapper">
+
+    <select id="getList" resultType="top.asshell.pojo.Material">
+        select * from material
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="code!=null">
+                and code=#{code}
+            </if>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="model!=null">
+                and model=#{model}
+            </if>
+            <if test="specifications!=null">
+                and specifications=#{specifications}
+            </if>
+            <if test="unit!=null">
+                and unit=#{unit}
+            </if>
+            <if test="price!=null">
+                and price=#{price}
+            </if>
+            <if test="typeId!=null">
+                and typeId=#{typeId}
+            </if>
+            <if test="ps!=null">
+                and ps=#{ps}
+            </if>
+        </where>
+    </select>
+
+    <delete id="remove" >
+        delete from material where id=#{id}
+    </delete>
+
+    <update id="update">
+        update material set code=#{code},name=#{name},model=#{model},specifications=#{specifications},unit=#{unit},price=#{price},typeId=#{typeId},ps=#{ps} where id=#{id}
+    </update>
+
+    <insert id="save" >
+        insert into material(
+        code,
+        name,
+        model,
+        specifications,
+        unit,
+        price,
+        typeId,
+        ps
+    )values(#{code},#{name},#{model},#{specifications},#{unit},#{price},#{typeId},#{ps})
+    </insert>
+
+</mapper>
