@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.asshell.common.result.Result;
 import top.asshell.dto.MaterialDTO;
-import top.asshell.pojo.DeviceInformation;
 import top.asshell.pojo.Material;
 import top.asshell.service.MaterialService;
 

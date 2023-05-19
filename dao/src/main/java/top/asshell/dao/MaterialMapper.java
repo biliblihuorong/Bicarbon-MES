@@ -11,11 +11,11 @@ public interface MaterialMapper {
 
     List<Material> getList(MaterialDTO materialDTO);
 
-    public Integer save(Material material);
+    Integer save(Material material);
 
-    public Integer remove(Integer id);
+    Integer remove(Integer id);
 
-    public Integer update(Material Material);
+    Integer update(Material Material);
 
 
 }
