@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#      - name: Checkout code
+#        uses: actions/checkout@v2
 
       - name: Set up JDK
         uses: actions/setup-java@v2
@@ -29,4 +29,3 @@ jobs:
         with:
           branch: master  # 或者您要发布到的分支
           folder: target
-          distribution: dist
