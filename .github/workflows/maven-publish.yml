@@ -22,7 +22,7 @@ jobs:
         run: mvn package --batch-mode
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: actions/create-release@v1
         with:
           branch: master
           folder: target
