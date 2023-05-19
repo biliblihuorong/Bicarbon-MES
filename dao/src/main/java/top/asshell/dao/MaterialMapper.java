@@ -9,16 +9,13 @@ import java.util.List;
 @Mapper
 public interface MaterialMapper {
 
-    List<Material> getList (MaterialDTO materialDTO);
+    List<Material> getList(MaterialDTO materialDTO);
 
     public Integer save(Material material);
 
     public Integer remove(Integer id);
 
     public Integer update(Material Material);
-
-
-
 
 
 }

@@ -15,7 +15,7 @@
         select *from data_acquisition
         <where>
             <if test="deviceName!=null">
-                and deviceName  like "%"#{deviceName}"%"
+                and deviceName like "%"#{deviceName}"%"
             </if>
         </where>
     </select>

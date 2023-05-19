@@ -16,26 +16,27 @@ import top.asshell.service.DeviceInformationService;
 public class DeviceInformationController {
     @Autowired
     private DeviceInformationService service;
+
     @GetMapping("/getList")
-    public Result<PageInfo<DeviceInformation>> getList(DeviceInformationDTO dto){
+    public Result<PageInfo<DeviceInformation>> getList(DeviceInformationDTO dto) {
         return service.getList(dto);
     }
 
     @ApiOperation("删除")
     @DeleteMapping("/delete")
-    public Result delete(@RequestBody Integer ids[]){
+    public Result delete(@RequestBody Integer ids[]) {
         return service.del(ids);
     }
 
     @ApiOperation("更新")
     @PutMapping("/update")
-    public Result update (@RequestBody DeviceInformation deviceInformation){
+    public Result update(@RequestBody DeviceInformation deviceInformation) {
         return service.update(deviceInformation);
     }
 
     @ApiOperation("新增")
     @PostMapping("/add")
-    public Result add(@RequestBody DeviceInformation deviceInformation){
+    public Result add(@RequestBody DeviceInformation deviceInformation) {
         return service.add(deviceInformation);
     }
 }

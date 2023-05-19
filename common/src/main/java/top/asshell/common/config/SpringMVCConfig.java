@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SpringMVCConfig  extends WebMvcConfigurationSupport {
+public class SpringMVCConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -39,6 +39,7 @@ public class SpringMVCConfig  extends WebMvcConfigurationSupport {
                 .paths(PathSelectors.any())
                 .build();
     }
+
     private ApiInfo apiInfo() {//接口文档信息
         return new ApiInfoBuilder()
                 .title("国赛测试")
@@ -46,6 +47,7 @@ public class SpringMVCConfig  extends WebMvcConfigurationSupport {
                 .description("接口文档")
                 .build();
     }
+
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")

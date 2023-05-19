@@ -11,40 +11,49 @@
         <result column="time" property="time"></result>
         <result column="ps" property="ps"></result>
     </resultMap>
-    
-    <select id="getList" resultMap="result" >
-    select * from energy_efficiency
-    <where>
-        <if test="name!=null">
-            and name like "%"#{name}"%"
-        </if>
-        <if test="add!=null">
-            and address like "%"#{add}"%"
-        </if>
-    <if test="status!=null">
-        and status like "%"#{status}"%"
-    </if>
 
-    </where>
+    <select id="getList" resultMap="result">
+        select * from energy_efficiency
+        <where>
+            <if test="name!=null">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="add!=null">
+                and address like "%"#{add}"%"
+            </if>
+            <if test="status!=null">
+                and status like "%"#{status}"%"
+            </if>
+
+        </where>
     </select>
 
-    <insert id="save" >
-        insert into energy_efficiency(
-            name,
-            address,
-            power,
-            voltage,
-            status,
-            time,
-            ps
-        )values(#{name},#{add},#{power},#{voltage},#{status},#{time},#{ps})
+    <insert id="save">
+        insert into energy_efficiency(name,
+                                      address,
+                                      power,
+                                      voltage,
+                                      status,
+                                      time,
+                                      ps)
+        values (#{name}, #{add}, #{power}, #{voltage}, #{status}, #{time}, #{ps})
     </insert>
 
     <update id="update">
-        update energy_efficiency  set name= #{name},address=#{add},power=#{power},voltage=#{voltage},status=#{status},time=#{time},ps=#{ps} where id =#{id}
+        update energy_efficiency
+        set name= #{name},
+            address=#{add},
+            power=#{power},
+            voltage=#{voltage},
+            status=#{status},
+            time=#{time},
+            ps=#{ps}
+        where id = #{id}
     </update>
 
-    <delete id="remove" >
-        delete from energy_efficiency where id =#{id}
+    <delete id="remove">
+        delete
+        from energy_efficiency
+        where id = #{id}
     </delete>
 </mapper>

@@ -34,12 +34,12 @@ public class Inspection {
     @ApiModelProperty("检验批次")
     private String inspectionLot;
     @ApiModelProperty("生产日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date produceDate;
     @ApiModelProperty("检验项")
     private String inspectionItems;
     @ApiModelProperty("检验时间")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date inspectionTime;
     @ApiModelProperty("产线名称")
     private String productionLine;

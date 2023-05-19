@@ -20,7 +20,7 @@ public class DeviceInformation {
     @ApiModelProperty("型号")
     private String model;
     @ApiModelProperty("生产日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date produceDate;
     @ApiModelProperty("生产批号")
     private String productBatch;

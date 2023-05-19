@@ -19,25 +19,25 @@ public class MaterialController {
     private MaterialService service;
 
     @GetMapping("/getList")
-    public Result<PageInfo<Material>> getList(MaterialDTO dto){
-       return service.getList(dto);
+    public Result<PageInfo<Material>> getList(MaterialDTO dto) {
+        return service.getList(dto);
     }
 
     @ApiOperation("删除")
     @DeleteMapping("/delete")
-    public Result delete(@RequestBody Integer ids[]){
+    public Result delete(@RequestBody Integer ids[]) {
         return service.delete(ids);
     }
 
     @ApiOperation("更新")
     @PutMapping("/update")
-    public Result update (@RequestBody Material material){
+    public Result update(@RequestBody Material material) {
         return service.update(material);
     }
 
     @ApiOperation("新增")
     @PostMapping("/add")
-    public Result add(@RequestBody Material material){
+    public Result add(@RequestBody Material material) {
         return service.add(material);
     }
 }

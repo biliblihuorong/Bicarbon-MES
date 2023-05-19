@@ -22,7 +22,7 @@ public class Information {
     @ApiModelProperty("企业性质")
     private String enterpriseNature;
     @ApiModelProperty("创立日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date establishDate;
     @ApiModelProperty("法人")
     private String iegalPerson;

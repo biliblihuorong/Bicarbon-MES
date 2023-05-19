@@ -9,11 +9,11 @@ import java.util.List;
 @Mapper
 public interface DeviceInformationMapper {
 
-    List<DeviceInformation> getList (DeviceInformationDTO informationDTO);
+    List<DeviceInformation> getList(DeviceInformationDTO informationDTO);
 
-    Integer save (DeviceInformation deviceInformation);
+    Integer save(DeviceInformation deviceInformation);
 
-    Integer remove (Integer id);
+    Integer remove(Integer id);
 
     Integer update(DeviceInformation deviceInformation);
 

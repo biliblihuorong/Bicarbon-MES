@@ -39,7 +39,7 @@ public class IncomingInspection {
     @ApiModelProperty("检验人")
     private String inspector;
     @ApiModelProperty("检验时间")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date inspectionTime;
 
     @ApiModelProperty("物料")

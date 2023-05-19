@@ -27,24 +27,35 @@
     </select>
 
     <insert id="save">
-            insert into DeviceInformation(
-                 name,
-                 code,
-                 model,
-                 produceDate,
-                 productBatch,
-                 manufacturer,
-                 deviceStatus,
-                 ps)values(#{name},#{code},#{model},#{produceDate},#{productBatch},#{manufacturer},#{deviceStatus},#{ps})
+        insert into DeviceInformation(name,
+                                      code,
+                                      model,
+                                      produceDate,
+                                      productBatch,
+                                      manufacturer,
+                                      deviceStatus,
+                                      ps)
+        values (#{name}, #{code}, #{model}, #{produceDate}, #{productBatch}, #{manufacturer}, #{deviceStatus}, #{ps})
     </insert>
 
 
     <delete id="remove">
-        delete from DeviceInformation where id =#{id}
+        delete
+        from DeviceInformation
+        where id = #{id}
     </delete>
 
     <update id="update">
-        update DeviceInformation set name=#{name},code=#{code},model=#{model},produceDate=#{produceDate},productBatch=#{productBatch},manufacturer=#{manufacturer},deviceStatus=#{deviceStatus},ps=#{ps} where id=#{id}
+        update DeviceInformation
+        set name=#{name},
+            code=#{code},
+            model=#{model},
+            produceDate=#{produceDate},
+            productBatch=#{productBatch},
+            manufacturer=#{manufacturer},
+            deviceStatus=#{deviceStatus},
+            ps=#{ps}
+        where id = #{id}
     </update>
 
 </mapper>

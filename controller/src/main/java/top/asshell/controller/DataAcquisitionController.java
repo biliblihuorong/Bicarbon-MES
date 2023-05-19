@@ -18,9 +18,10 @@ import top.asshell.service.DataAcquisitionService;
 public class DataAcquisitionController {
     @Autowired
     private DataAcquisitionService dataAcquisitionService;
+
     @GetMapping("/getList")
 
-    public Result<PageInfo<DataAcquisition>> getList(String deviceName, Integer pageNum, Integer pageSize){
-       return dataAcquisitionService.getList(deviceName,pageNum,pageSize);
+    public Result<PageInfo<DataAcquisition>> getList(String deviceName, Integer pageNum, Integer pageSize) {
+        return dataAcquisitionService.getList(deviceName, pageNum, pageSize);
     }
 }

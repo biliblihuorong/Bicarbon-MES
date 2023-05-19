@@ -23,25 +23,27 @@ public class EnergyEfficiencyController {
 
     @ApiOperation("查询")
     @GetMapping("/getList")
-    public Result<PageInfo<EnergyEfficiency>> getLis(EnergyEfficiencyDTO efficiencyDTO){
+    public Result<PageInfo<EnergyEfficiency>> getLis(EnergyEfficiencyDTO efficiencyDTO) {
 
         return efficiencyService.getListEnergyEfficiency(efficiencyDTO);
     }
 
     @ApiOperation("修改")
     @PutMapping("/update")
-    public Result update(@RequestBody EnergyEfficiency energyEfficiency){
+    public Result update(@RequestBody EnergyEfficiency energyEfficiency) {
         return efficiencyService.update(energyEfficiency);
     }
+
     @ApiOperation("删除")
     @DeleteMapping("/delete")
-    public Result delete(@RequestBody List<Integer> ids){
-       return efficiencyService.remove(ids);
+    public Result delete(@RequestBody List<Integer> ids) {
+        return efficiencyService.remove(ids);
     }
+
     @ApiOperation("新增")
     @PostMapping("/add")
-    public Result add(@RequestBody EnergyEfficiency energyEfficiency){
-       return efficiencyService.add(energyEfficiency);
+    public Result add(@RequestBody EnergyEfficiency energyEfficiency) {
+        return efficiencyService.add(energyEfficiency);
     }
 
 }

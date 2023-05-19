@@ -35,16 +35,28 @@
         </where>
     </select>
 
-    <delete id="remove" >
-        delete from material where id=#{id}
+    <delete id="remove">
+        delete
+        from material
+        where id = #{id}
     </delete>
 
     <update id="update">
-        update material set code=#{code},name=#{name},model=#{model},specifications=#{specifications},unit=#{unit},price=#{price},type_id=#{typeId},ps=#{ps} where id=#{id}
+        update material
+        set code=#{code},
+            name=#{name},
+            model=#{model},
+            specifications=#{specifications},
+            unit=#{unit},
+            price=#{price},
+            type_id=#{typeId},
+            ps=#{ps}
+        where id = #{id}
     </update>
 
-    <insert id="save" >
-        insert into material(code,name,model,specifications,unit,price,type_id,ps)values(#{code},#{name},#{model},#{specifications},#{unit},#{price},#{typeId},#{ps})
+    <insert id="save">
+        insert into material(code, name, model, specifications, unit, price, type_id, ps)
+        values (#{code}, #{name}, #{model}, #{specifications}, #{unit}, #{price}, #{typeId}, #{ps})
     </insert>
 
 </mapper>
