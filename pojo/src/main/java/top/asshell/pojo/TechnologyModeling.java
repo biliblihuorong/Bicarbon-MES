@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class TechnologyModeling {
-
     @ApiModelProperty("主键")
     private String id;
     @ApiModelProperty("工艺名称")
@@ -18,6 +17,5 @@ public class TechnologyModeling {
     private String ps;
     @ApiModelProperty("描述")
     private String describe;
-
     private Material material;
 }

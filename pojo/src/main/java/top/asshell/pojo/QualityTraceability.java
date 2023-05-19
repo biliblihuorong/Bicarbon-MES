@@ -11,8 +11,6 @@ import java.util.Date;
 @Data
 @ApiModel( "质量追溯")
 public class QualityTraceability {
-
-
     @ApiModelProperty("主键")
     private Integer id;
     @ApiModelProperty("流水号")
@@ -45,6 +43,5 @@ public class QualityTraceability {
     @ApiModelProperty("检验时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date inspectionTime;
-
 
 }

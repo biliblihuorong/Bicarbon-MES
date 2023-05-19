@@ -25,8 +25,6 @@ public class QualityInspectionStandards {
 
     @ApiModelProperty(value = "备注", example = "无")
     private String remark;
-
-
     @ApiModelProperty("物料")
     private Material material;
 }
