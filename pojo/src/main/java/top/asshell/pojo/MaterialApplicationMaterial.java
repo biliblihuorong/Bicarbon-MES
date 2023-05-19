@@ -3,8 +3,6 @@ package top.asshell.pojo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class MaterialApplicationMaterial {
 
