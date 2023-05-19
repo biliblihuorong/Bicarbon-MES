@@ -27,5 +27,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages  # 或者您要发布到的分支
+          branch: master  # 或者您要发布到的分支
           folder: target
+          distribution: dist
