@@ -24,11 +24,11 @@ public class JobAssembly {
     private Integer productionPlanId;
 
     @ApiModelProperty(value = "开始时间", example = "2023-05-12")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date startTime;
 
     @ApiModelProperty(value = "结束时间", example = "2023-05-15")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date endTime;
 
     @ApiModelProperty(value = "作业状态", example = "进行中")

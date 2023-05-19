@@ -10,7 +10,7 @@ public interface DeviceInformationService {
 
     Result update(DeviceInformation deviceInformation);
 
-    Result del (Integer ids []);
+    Result del(Integer ids[]);
 
     Result add(DeviceInformation deviceInformation);
 }

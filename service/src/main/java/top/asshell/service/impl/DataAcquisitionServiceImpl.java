@@ -16,9 +16,9 @@ public class DataAcquisitionServiceImpl implements DataAcquisitionService {
     @Autowired
     private DataAcquisitionMapper dataAcquisitionMapper;
 
-    public Result<PageInfo<DataAcquisition>> getList(String deviceName, Integer pageNum, Integer pageSize){
+    public Result<PageInfo<DataAcquisition>> getList(String deviceName, Integer pageNum, Integer pageSize) {
 
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         List<DataAcquisition> list = dataAcquisitionMapper.getList(deviceName);
         PageInfo<DataAcquisition> dataAcquisitionPageInfo = new PageInfo<>(list);
         return Result.success(dataAcquisitionPageInfo);

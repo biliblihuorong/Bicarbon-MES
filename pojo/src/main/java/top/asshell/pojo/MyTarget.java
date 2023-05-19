@@ -14,7 +14,7 @@ public class MyTarget {
     @ApiModelProperty("标的名称")
     private String targetName;
     @ApiModelProperty("投标结束时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date bidEndTime;
     @ApiModelProperty("状态")
     private String status;

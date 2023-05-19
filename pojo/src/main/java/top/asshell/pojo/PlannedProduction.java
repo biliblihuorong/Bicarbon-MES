@@ -31,10 +31,10 @@ public class PlannedProduction {
     @ApiModelProperty("已产数量")
     private Integer quantityProduct;
     @ApiModelProperty("生产日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date produceDate;
     @ApiModelProperty("交货日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date deliveryDate;
     @ApiModelProperty("发布状态")
     private String status;

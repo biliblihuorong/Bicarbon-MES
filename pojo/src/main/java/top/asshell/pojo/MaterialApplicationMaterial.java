@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class MaterialApplicationMaterial  {
+public class MaterialApplicationMaterial {
 
 
     @ApiModelProperty("领料申请下半部分生产计划明细主键")
@@ -22,5 +22,5 @@ public class MaterialApplicationMaterial  {
     @ApiModelProperty("备注")
     private String ps;
 
-    private  Material material;
+    private Material material;
 }

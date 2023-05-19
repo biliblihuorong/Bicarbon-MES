@@ -9,7 +9,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-@ApiModel( "质量追溯")
+@ApiModel("质量追溯")
 public class QualityTraceability {
     @ApiModelProperty("主键")
     private Integer id;
@@ -28,7 +28,7 @@ public class QualityTraceability {
     @ApiModelProperty("产品名称")
     private String productName;
     @ApiModelProperty("生产日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date productionDate;
     @ApiModelProperty("检验项")
     private String inspectionItem;
@@ -41,7 +41,7 @@ public class QualityTraceability {
     @ApiModelProperty("检验人")
     private String inspector;
     @ApiModelProperty("检验时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date inspectionTime;
 
 }

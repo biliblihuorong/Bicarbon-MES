@@ -17,10 +17,11 @@ public class EnergyEfficiencyServiceImpl implements EnergyEfficiencyService {
 
     @Autowired
     private EnergyEfficiencyMapper mapper;
+
     @Override
     public Result update(EnergyEfficiency energyEfficiency) {
         Integer update = mapper.update(energyEfficiency);
-        if (update<0){
+        if (update < 0) {
             return Result.error("失败");
         }
         return Result.success(update);
@@ -28,29 +29,29 @@ public class EnergyEfficiencyServiceImpl implements EnergyEfficiencyService {
 
     @Override
     public Result remove(List<Integer> ids) {
-        Integer i=0;
+        Integer i = 0;
         for (Integer id : ids) {
-            i+=mapper.remove(id);
+            i += mapper.remove(id);
         }
-        if (i<0){
+        if (i < 0) {
             return Result.error("删除失败");
         }
-        return Result.success(null,"一共删除了"+i+"数据");
+        return Result.success(null, "一共删除了" + i + "数据");
     }
 
     @Override
     public Result add(EnergyEfficiency energyEfficiency) {
         Integer save = mapper.save(energyEfficiency);
-        if (save<0){
+        if (save < 0) {
             return Result.error("添加失败");
         }
 
-        return Result.success(null,"成功");
+        return Result.success(null, "成功");
     }
 
     @Override
     public Result<PageInfo<EnergyEfficiency>> getListEnergyEfficiency(EnergyEfficiencyDTO efficiencyDTO) {
-        PageHelper.startPage(efficiencyDTO.getPageNum(),efficiencyDTO.getPageSize());
+        PageHelper.startPage(efficiencyDTO.getPageNum(), efficiencyDTO.getPageSize());
         List<EnergyEfficiency> list = mapper.getList(efficiencyDTO);
         PageInfo<EnergyEfficiency> energyEfficiencyPageInfo = new PageInfo<>(list);
         return Result.success(energyEfficiencyPageInfo);

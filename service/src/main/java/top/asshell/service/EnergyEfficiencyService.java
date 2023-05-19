@@ -8,11 +8,12 @@ import top.asshell.pojo.EnergyEfficiency;
 import java.util.List;
 
 public interface EnergyEfficiencyService {
-    Result update (EnergyEfficiency energyEfficiency);
-    Result remove (List<Integer> ids);
+    Result update(EnergyEfficiency energyEfficiency);
 
-    Result add (EnergyEfficiency energyEfficiency);
+    Result remove(List<Integer> ids);
 
-    Result<PageInfo<EnergyEfficiency>> getListEnergyEfficiency (EnergyEfficiencyDTO efficiencyDTO);
+    Result add(EnergyEfficiency energyEfficiency);
+
+    Result<PageInfo<EnergyEfficiency>> getListEnergyEfficiency(EnergyEfficiencyDTO efficiencyDTO);
 
 }

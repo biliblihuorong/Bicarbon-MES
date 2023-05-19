@@ -21,11 +21,11 @@ public class ProductionPlan {
     @ApiModelProperty("名称")
     private String name;
     @ApiModelProperty("交货日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date deliveryDate;
     @ApiModelProperty("申请人")
     private String applicant;
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @ApiModelProperty("申请时间")
     private Date applicantDate;
     @ApiModelProperty("申请状态")
@@ -33,7 +33,7 @@ public class ProductionPlan {
     @ApiModelProperty("审核人")
     private String auditor;
     @ApiModelProperty("审核时间")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date examineDate;
     @ApiModelProperty("审核状态")
     private String examineStatus;

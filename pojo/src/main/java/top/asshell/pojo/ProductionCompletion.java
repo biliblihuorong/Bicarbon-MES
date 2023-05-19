@@ -20,7 +20,7 @@ public class ProductionCompletion {
     @ApiModelProperty("产品id")
     private Integer materialId;
     @ApiModelProperty("完工日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date completionDate;
     @ApiModelProperty("生产数量")
     private Integer quantity;

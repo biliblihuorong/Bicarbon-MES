@@ -27,7 +27,7 @@ public class QualityReport {
     @ApiModelProperty("产品名称")
     private String productName;
     @ApiModelProperty("生产日期")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date manufactureDate;
     @ApiModelProperty("检验项")
     private String inspectionItems;
@@ -40,6 +40,6 @@ public class QualityReport {
     @ApiModelProperty("合格数量")
     private String qualifiedQuantity;
     @ApiModelProperty("检验时间")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date inspectionTime;
 }

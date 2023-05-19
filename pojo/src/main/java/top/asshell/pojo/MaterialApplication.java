@@ -16,19 +16,19 @@ public class MaterialApplication {
     private String receiveNumber;
     @ApiModelProperty("计划排产主键")
     private Integer plannedProductionId;
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @ApiModelProperty("领取时间")
     private Date receiveTime;
     @ApiModelProperty("申请人")
     private String applicant;
     @ApiModelProperty("申请时间")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date applicantTime;
     @ApiModelProperty("申请状态")
     private String applicantStatus;
     @ApiModelProperty("审核人")
     private String reviewed;
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @ApiModelProperty("审核时间")
     private String reviewedTime;
     @ApiModelProperty("审核状态")

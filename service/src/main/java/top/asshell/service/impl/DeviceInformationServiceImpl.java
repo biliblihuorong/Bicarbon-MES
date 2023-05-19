@@ -17,8 +17,8 @@ public class DeviceInformationServiceImpl implements DeviceInformationService {
     @Autowired
     private DeviceInformationMapper deviceInformationMapper;
 
-    public Result<PageInfo<DeviceInformation>> getList(DeviceInformationDTO dto){
-        PageHelper.startPage(dto.getPageNum(),dto.getPageSize());
+    public Result<PageInfo<DeviceInformation>> getList(DeviceInformationDTO dto) {
+        PageHelper.startPage(dto.getPageNum(), dto.getPageSize());
         List<DeviceInformation> list = deviceInformationMapper.getList(dto);
         PageInfo<DeviceInformation> deviceInformationPageInfo = new PageInfo<>(list);
         return Result.success(deviceInformationPageInfo);
@@ -28,28 +28,28 @@ public class DeviceInformationServiceImpl implements DeviceInformationService {
     @Override
     public Result update(DeviceInformation deviceInformation) {
         Integer update = deviceInformationMapper.update(deviceInformation);
-        if (update<0){
-            return  Result.error("失败");
+        if (update < 0) {
+            return Result.error("失败");
         }
         return Result.success(update);
     }
 
     @Override
     public Result del(Integer[] ids) {
-        Integer i=0;
+        Integer i = 0;
         for (Integer id : ids) {
-            i+=deviceInformationMapper.remove(id);
+            i += deviceInformationMapper.remove(id);
         }
-        if (i<0){
+        if (i < 0) {
             return Result.error("删除失败");
         }
-        return Result.success(null,"一共删除了"+i+"数据");
+        return Result.success(null, "一共删除了" + i + "数据");
     }
 
     @Override
     public Result add(DeviceInformation deviceInformation) {
         Integer save = deviceInformationMapper.save(deviceInformation);
-        if (save<0){
+        if (save < 0) {
             return Result.error("失败");
         }
         return Result.success(save);

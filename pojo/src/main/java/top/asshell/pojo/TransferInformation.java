@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class TransferInformation{
+public class TransferInformation {
 
     @ApiModelProperty(value = "主键", example = "1")
     private Integer id;

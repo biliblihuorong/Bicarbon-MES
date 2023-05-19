@@ -16,40 +16,41 @@ import java.util.List;
 public class MaterialServiceImpl implements MaterialService {
     @Autowired
     private MaterialMapper mapper;
+
     @Override
     public Result update(Material material) {
         Integer update = mapper.update(material);
-        if (update<0){
-            return  Result.error("失败");
+        if (update < 0) {
+            return Result.error("失败");
         }
         return Result.success(update);
     }
 
     @Override
     public Result delete(Integer[] ids) {
-        Integer i=0;
+        Integer i = 0;
         for (Integer id : ids) {
-            i+=mapper.remove(id);
+            i += mapper.remove(id);
         }
-        if (i<0){
+        if (i < 0) {
             return Result.error("删除失败");
         }
-        return Result.success(null,"一共删除了"+i+"数据");
+        return Result.success(null, "一共删除了" + i + "数据");
     }
 
     @Override
     public Result add(Material material) {
         Integer save = mapper.save(material);
-        if (save<0){
+        if (save < 0) {
             return Result.error("添加失败");
         }
 
-        return Result.success(null,"成功");
+        return Result.success(null, "成功");
     }
 
     @Override
     public Result<PageInfo<Material>> getList(MaterialDTO materialDTO) {
-        PageHelper.startPage(materialDTO.getPageNum(),materialDTO.getPageSize());
+        PageHelper.startPage(materialDTO.getPageNum(), materialDTO.getPageSize());
         List<Material> list = mapper.getList(materialDTO);
         PageInfo<Material> materialPageInfo = new PageInfo<>(list);
         return Result.success(materialPageInfo);

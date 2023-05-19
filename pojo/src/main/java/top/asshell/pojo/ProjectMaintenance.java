@@ -10,19 +10,19 @@ import java.util.Date;
 public class ProjectMaintenance {
 
     @ApiModelProperty("主键")
-    private Integer  id;
+    private Integer id;
     @ApiModelProperty("项目名")
-    private String  projectName;
+    private String projectName;
     @ApiModelProperty("负责人")
-    private String  head;
+    private String head;
     @ApiModelProperty("开始时间")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date startTime;
     @ApiModelProperty("结束时间")
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
-    private Date  endTime;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private Date endTime;
     @ApiModelProperty("0正常 1挂起")
-    private Integer  status;
+    private Integer status;
     @ApiModelProperty("项目介绍（图片）")
-    private String  introduce;
+    private String introduce;
 }
