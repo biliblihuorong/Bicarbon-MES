@@ -1,8 +1,10 @@
 package top.asshell.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import top.asshell.common.Utils.PageHelperDTO;
+import top.asshell.pojo.DataAcquisition;
 
-public class DataAcquisitionDTO {
+public class DataAcquisitionDTO extends PageHelperDTO<DataAcquisition> {
     @ApiModelProperty("设备名称")
     private String deviceName;
     @ApiModelProperty("已产数量")

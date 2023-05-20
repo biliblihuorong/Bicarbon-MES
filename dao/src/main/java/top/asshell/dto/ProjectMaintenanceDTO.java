@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import top.asshell.common.Utils.PageHelperDTO;
+import top.asshell.pojo.ProjectMaintenance;
 
 import java.util.Date;
 @Data
 @ApiModel("项目维护接收类")
-public class ProjectMaintenanceDTO {
+public class ProjectMaintenanceDTO extends PageHelperDTO<ProjectMaintenance> {
 
     @ApiModelProperty("项目名")
     private String projectName;
@@ -30,4 +32,5 @@ public class ProjectMaintenanceDTO {
     private Integer status;
     @ApiModelProperty("项目介绍（图片）")
     private String introduce;
+
 }

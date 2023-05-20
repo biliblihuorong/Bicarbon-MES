@@ -5,12 +5,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+import top.asshell.common.Utils.PageHelperDTO;
+import top.asshell.pojo.DeviceInformation;
 
 import java.util.Date;
 
 @Data
 @ApiModel("设备信息DTO")
-public class DeviceInformationDTO {
+public class DeviceInformationDTO extends PageHelperDTO<DeviceInformation> {
     @ApiModelProperty("名称")
     private String name;
     @ApiModelProperty("编码")
@@ -31,7 +33,6 @@ public class DeviceInformationDTO {
     private String manufacturer;
     @ApiModelProperty("设备状态 空闲 使用中 故障")
     private String deviceStatus;
-    private Integer pageNum;
-    private Integer pageSize;
+
 
 }

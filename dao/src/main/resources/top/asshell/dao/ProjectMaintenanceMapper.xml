@@ -35,7 +35,7 @@
         where id = #{id}
     </update>
 
-    <delete id="delete">
+    <delete id="remove">
         delete from project_maintenance where id = #{id}
     </delete>
 </mapper>

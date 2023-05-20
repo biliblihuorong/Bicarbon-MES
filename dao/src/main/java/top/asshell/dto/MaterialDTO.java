@@ -2,11 +2,13 @@ package top.asshell.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import top.asshell.common.Utils.PageHelperDTO;
+import top.asshell.pojo.Material;
 
 import java.math.BigDecimal;
 
 @Data
-public class MaterialDTO {
+public class MaterialDTO extends PageHelperDTO<Material> {
     @ApiModelProperty("主键")
     private Integer id;
     @ApiModelProperty("编码")
@@ -25,6 +27,5 @@ public class MaterialDTO {
     private Integer typeId;
     @ApiModelProperty("备注")
     private String ps;
-    private Integer pageNum;
-    private Integer pageSize;
+
 }

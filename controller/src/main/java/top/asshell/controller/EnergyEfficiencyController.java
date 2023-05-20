@@ -36,7 +36,7 @@ public class EnergyEfficiencyController {
 
     @ApiOperation("删除")
     @DeleteMapping("/delete")
-    public Result delete(@RequestBody List<Integer> ids) {
+    public Result delete(@RequestBody Integer ids []) {
         return efficiencyService.remove(ids);
     }
 

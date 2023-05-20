@@ -1,13 +1,14 @@
 package top.asshell.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import top.asshell.common.Utils.MapperBase;
 import top.asshell.dto.DeviceInformationDTO;
 import top.asshell.pojo.DeviceInformation;
 
 import java.util.List;
 
 @Mapper
-public interface DeviceInformationMapper {
+public interface DeviceInformationMapper extends MapperBase<DeviceInformation> {
 
     List<DeviceInformation> getList(DeviceInformationDTO informationDTO);
 

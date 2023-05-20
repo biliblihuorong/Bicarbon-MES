@@ -10,7 +10,7 @@ import java.util.List;
 public interface EnergyEfficiencyService {
     Result update(EnergyEfficiency energyEfficiency);
 
-    Result remove(List<Integer> ids);
+    Result remove(Integer ids []);
 
     Result add(EnergyEfficiency energyEfficiency);
 
