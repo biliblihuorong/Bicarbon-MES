@@ -8,8 +8,8 @@ import lombok.Data;
 @Data
 public class PageHelperDTO <T> {
     @ApiModelProperty("第几个页面")
-    private Integer pageNum;
+    private Integer pageNum =1;
     @ApiModelProperty("页面多少数据")
-    private Integer pageSize;
+    private Integer pageSize = 20;
 
 }
