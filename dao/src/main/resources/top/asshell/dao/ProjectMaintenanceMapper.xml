@@ -20,8 +20,7 @@
     </select>
 
     <insert id="save" useGeneratedKeys="true">
-        insert into project_maintenance (projectName, head, startTime, endTime, status, introduce)
-        values (#{projectName}, #{head}, #{startTime}, #{endTime}, #{status}, #{introduce})
+        insert into project_maintenance (projectName, head, startTime, endTime, status, introduce)values (#{projectName}, #{head}, #{startTime}, #{endTime}, #{status}, #{introduce})
     </insert>
 
     <update id="update">

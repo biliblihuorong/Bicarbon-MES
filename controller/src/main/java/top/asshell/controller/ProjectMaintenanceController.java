@@ -15,24 +15,28 @@ import top.asshell.service.impl.ProjectMaintenanceServiceImpl;
 public class ProjectMaintenanceController {
     @Autowired
     private ProjectMaintenanceServiceImpl service;
+
     @ApiOperation("查询")
     @GetMapping("/getList")
-    public Result getList(ProjectMaintenanceDTO maintenanceDTO){
+    public Result getList(ProjectMaintenanceDTO maintenanceDTO) {
         return service.getList(maintenanceDTO);
     }
+
     @ApiOperation("新增")
     @PostMapping("/add")
-    public Result add(ProjectMaintenance projectMaintenance){
+    public Result add(ProjectMaintenance projectMaintenance) {
         return service.add(projectMaintenance);
     }
+
     @ApiOperation("更新")
     @PutMapping("/update")
-    public Result update(ProjectMaintenance projectMaintenance){
+    public Result update(ProjectMaintenance projectMaintenance) {
         return service.update(projectMaintenance);
     }
+
     @ApiOperation("删除")
     @DeleteMapping("/delete")
-    public Result delete(Integer ids []){
+    public Result delete(Integer ids[]) {
         return service.delete(ids);
     }
 

@@ -23,7 +23,7 @@ public class SpringMVCConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         System.out.println("启动成功放行配置");
-        String filePath=url.replace("\\","\\\\");
+        String filePath="file:"+url.replace("\\","\\\\");
         registry.addResourceHandler("/profile/**").addResourceLocations(filePath);
         registry.addResourceHandler("/static/**").addResourceLocations(
                 "classpath:/static/");
