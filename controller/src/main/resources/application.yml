@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      datetime: yyyy-MM-dd HH:mm:ss
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
