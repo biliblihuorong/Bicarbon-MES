@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -40,5 +41,15 @@ public class CarrierOrder {
     private String carrier;
 
     @ApiModelProperty(value = "运输距离", example = "500.00")
-    private BigDecimal transportDistance;
+    private String transportDistance;
+
+    @ApiModelProperty(value = "申请人")
+    private String applicant;
+
+    @ApiModelProperty(value = "审核日期")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date approved_date;
+    @ApiModelProperty(value = "审核状态")
+    private Integer status;
 }
