@@ -1,6 +1,6 @@
 package top.asshell.service.impl;
 
-import com.github.pagehelper.PageHelper;
+
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import top.asshell.dto.EnergyEfficiencyDTO;
 import top.asshell.pojo.EnergyEfficiency;
 import top.asshell.service.EnergyEfficiencyService;
 
-import java.util.List;
+
 
 @Service
 public class EnergyEfficiencyServiceImpl implements EnergyEfficiencyService {

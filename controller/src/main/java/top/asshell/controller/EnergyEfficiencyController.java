@@ -2,7 +2,7 @@ package top.asshell.controller;
 
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
+
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,6 @@ import top.asshell.dto.EnergyEfficiencyDTO;
 import top.asshell.pojo.EnergyEfficiency;
 import top.asshell.service.EnergyEfficiencyService;
 
-import java.util.List;
 
 @RestController
 @Api(tags = "能效预警接口")

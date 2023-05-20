@@ -1,19 +1,16 @@
 package top.asshell.service.impl;
 
-import com.github.pagehelper.PageHelper;
+
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.asshell.common.Utils.ServiceUtils;
 import top.asshell.common.result.Result;
 import top.asshell.dao.MaterialMapper;
-import top.asshell.dto.EnergyEfficiencyDTO;
 import top.asshell.dto.MaterialDTO;
-import top.asshell.pojo.EnergyEfficiency;
 import top.asshell.pojo.Material;
 import top.asshell.service.MaterialService;
 
-import java.util.List;
 
 @Service
 public class MaterialServiceImpl implements MaterialService {
