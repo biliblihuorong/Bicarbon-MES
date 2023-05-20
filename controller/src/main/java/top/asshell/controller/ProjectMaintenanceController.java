@@ -11,7 +11,7 @@ import top.asshell.service.impl.ProjectMaintenanceServiceImpl;
 
 @RestController
 @RequestMapping("/projectMaintenance")
-@Api("项目维护接口")
+@Api(tags = "项目维护接口")
 public class ProjectMaintenanceController {
     @Autowired
     private ProjectMaintenanceServiceImpl service;

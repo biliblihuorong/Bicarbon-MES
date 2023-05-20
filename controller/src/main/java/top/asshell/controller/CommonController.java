@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/common/")
-@Api("通用接口")
+@Api(tags = "通用接口")
 public class CommonController {
 
 
