@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.asshell.dao.ProjectMaintenanceMapper">
+    <select id="getList" resultType="top.asshell.pojo.ProjectMaintenance">
+        select * from project_maintenance
+        <where>
+            <if test="projectName != null">
+                and projectName like "%"#{projectName}"%"
+            </if>
+            <if test="startStartTime != null">
+                and #{startStartTime} &gt; startTime and startTime &lt; #{endStartTime}
+            </if>
+            <if test="startEndTime != null">
+                and #{startEndTime} &gt; endTime and endTime &lt; #{endEndTime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" useGeneratedKeys="true">
+        insert into project_maintenance (projectName, head, startTime, endTime, status, introduce)
+        values (#{projectName}, #{head}, #{startTime}, #{endTime}, #{status}, #{introduce})
+    </insert>
+
+    <update id="update">
+        update project_maintenance
+        set projectName = #{projectName},
+        head = #{head},
+        startTime = #{startTime},
+        endTime = #{endTime},
+        status = #{status},
+        introduce = #{introduce}
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from project_maintenance where id = #{id}
+    </delete>
+</mapper>

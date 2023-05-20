@@ -28,14 +28,14 @@
 
     <insert id="save">
         insert into DeviceInformation(name,
-                                      code,
-                                      model,
-                                      produceDate,
-                                      productBatch,
-                                      manufacturer,
-                                      deviceStatus,
-                                      ps)
-        values (#{name}, #{code}, #{model}, #{produceDate}, #{productBatch}, #{manufacturer}, #{deviceStatus}, #{ps})
+        code,
+        model,
+        produceDate,
+        productBatch,
+        manufacturer,
+        deviceStatus,
+        ps)
+        values (#{name},#{code},#{model},#{produceDate},#{productBatch},#{manufacturer},#{deviceStatus},#{ps})
     </insert>
 
 
