@@ -22,7 +22,7 @@
 1. 克隆代码到本地
 
    ```
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/biliblihuorong/Bicarbon-MES.git
    ```
 
 2. 进入项目目录
