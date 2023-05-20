@@ -46,10 +46,20 @@ public class CarrierOrder {
     @ApiModelProperty(value = "申请人")
     private String applicant;
 
-    @ApiModelProperty(value = "审核日期")
+    @ApiModelProperty(value = "申请日期")
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date approved_date;
+    @ApiModelProperty(value = "申请状态",example = "0是未提交、1是待审核、2是已审核")
+    private Integer approved_status;
+
+    @ApiModelProperty("审核人")
+    private  String reviewed;
+    @ApiModelProperty("审核日期")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date reviewed_date;
+
     @ApiModelProperty(value = "审核状态")
-    private Integer status;
+    private Integer reviewed_status;
 }
