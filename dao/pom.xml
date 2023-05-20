@@ -16,6 +16,11 @@
             <artifactId>pojo</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>top.asshell</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <properties>
