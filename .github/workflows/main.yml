@@ -1,0 +1,48 @@
+name: Build and Publish Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@master
+        with:
+          java-version: 8
+          distribution: "adopt"
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn package --batch-mode
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          tag_name: Release-${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          draft: false
+          prerelease: false
+      - name: List files
+        run: ls -R
+      - name: Display directory tree
+        run: tree
+      - name: Upload JAR
+        id: upload_jar
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./controller/target/controller-1.0.jar
+          asset_name: controller-jar
+          asset_content_type: application/java-archive
