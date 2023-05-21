@@ -1,17 +1,15 @@
-package top.asshell.pojo;
+package top.asshell.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-
+import top.asshell.common.Utils.PageHelperDTO;
+import top.asshell.pojo.CarrierOrder;
 
 import java.util.Date;
-
 @Data
-@ApiModel("承运单号")
-public class CarrierOrder {
+public class CarrierOrderDTO extends PageHelperDTO<CarrierOrder> {
     @ApiModelProperty(value = "主键", example = "1")
     private Integer id;
 
@@ -62,6 +60,16 @@ public class CarrierOrder {
 
     @ApiModelProperty(value = "审核状态")
     private Integer reviewedStatus;
+
+    @ApiModelProperty(value = "查询时间起始区间")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date startTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @ApiModelProperty(value = "结束查询时间区间")
+    private Date endTime;
     @ApiModelProperty(value = "审核意见")
     private String ps;
+
 }

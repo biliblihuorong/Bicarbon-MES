@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.asshell.dao.CarrierOrderMapper">
+    <select id="getList" resultType="top.asshell.pojo.CarrierOrder">
+        select * from carrier_order
+        <where>
+            <if test="documentNumber!=null">
+                and documentNumber like "%"#{documentNumber}"%"
+            </if>
+            <if test="outboundOrderNumber!=null">
+                and outboundOrderNumber like "%"#{outboundOrderNumber}"%"
+            </if>
+            <if test="shippingNumber!=null">
+                and shippingNumber like "%"#{shippingNumber}"%"
+            </if>
+            <if test="customer!=null">
+                and customer like "%"#{customer}"%"
+            </if>
+            <if test="applicant!=null">
+                and applicant like "%"#{applicant}"%"
+            </if>
+            <if test="startTime!=null">
+                and startTime &gt; approved_date and approved_date &lt; endTime
+            </if>
+            <if test="approvedStatus!=null">
+                and approved_status like "%"#{approvedStatus}"%"
+            </if>
+        </where>
+    </select>
+
+
+    <update id="update">
+        update set ps=#{ps},approved_status=#{approvedStatus}where id=#{id}
+    </update>
+
+</mapper>
