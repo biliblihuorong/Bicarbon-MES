@@ -63,4 +63,4 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-           bash ${{secrets.SERVER_FILE}}/SpringBootStart.sh
+           bash ${{secrets.SERVER_SHFILE}}/SpringBootStart-guosai.sh
