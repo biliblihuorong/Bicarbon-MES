@@ -64,5 +64,5 @@ jobs:
           script: |
            cd /${{secrets.SERVER_FILE}}/controller/target/
             ps -ef | grep controller-1.0.jar | grep -v grep | awk '{print $2}' | xargs kill -9 
-            nohup java -jar controller-1.0.jar --spring.config.name=application --spring.config.location= /www/wwwroot/SpringBoot/application.yaml > nohup.out &
+            nohup java -jar controller-1.0.jar > nohup.out &
             exit
