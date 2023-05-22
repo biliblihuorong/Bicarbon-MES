@@ -52,8 +52,9 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
+          rm : true
           source: ./controller/target/controller-1.0.jar
-          target: ${{secrets.SERVER_FILE}}/controller-1.0.jar
+          target: ${{secrets.SERVER_FILE}}/
 
       - name: Execute shell scripts on server
         uses: appleboy/ssh-action@master
@@ -62,4 +63,4 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-           bash ${{secrets.SERVER_FILE}}/deploy.sh
+           bash ${{secrets.SERVER_FILE}}/SpringBootStart.sh
