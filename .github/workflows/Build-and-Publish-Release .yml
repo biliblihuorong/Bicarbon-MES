@@ -61,5 +61,5 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-        script: |
-          bash ${{secrets.SERVER_FILE}}/deploy.sh
+          script: |
+           bash ${{secrets.SERVER_FILE}}/deploy.sh
