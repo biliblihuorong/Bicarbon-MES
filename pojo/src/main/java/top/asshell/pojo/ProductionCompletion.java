@@ -28,8 +28,6 @@ public class ProductionCompletion {
     private String batchNumber;
     @ApiModelProperty("状态 未入库、入库中、已入库、检验合格、检验未合格")
     private String status;
-
-
     @ApiModelProperty("生产计划")
     private ProductionPlan productionPlan;
     @ApiModelProperty("产品")

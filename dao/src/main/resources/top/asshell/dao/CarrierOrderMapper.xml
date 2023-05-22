@@ -27,8 +27,6 @@
             </if>
         </where>
     </select>
-
-
     <update id="update">
         update set ps=#{ps},approved_status=#{approvedStatus}where id=#{id}
     </update>
