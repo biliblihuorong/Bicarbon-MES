@@ -1,80 +1,124 @@
-name: Build and Publish Release
+name: Release
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types:
+      - created
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up JDK
-        uses: actions/setup-java@master
+      - name: Set up Go
+        uses: actions/setup-go@v2
         with:
-          java-version: 8
-          distribution: "adopt"
-          cache: maven
+          go-version: 1.20.5  # 替换为您需要的Go版本
 
-      - name: Build with Maven
-        run: mvn package --batch-mode
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and package
+        run: |
+          go get -d -v ./...
+
+          # x86 Windows
+          GOOS=windows GOARCH=386 go build -o my-app-386-windows.exe
+          zip my-app-386-windows.zip my-app-386-windows.exe
+
+          # x86 Linux
+          GOOS=linux GOARCH=386 go build -o my-app-386-linux
+          tar czf my-app-386-linux.tar.gz my-app-386-linux
+
+          # x86_64 Windows
+          GOOS=windows GOARCH=amd64 go build -o my-app-amd64-windows.exe
+          zip my-app-amd64-windows.zip my-app-amd64-windows.exe
+
+          # x86_64 Linux
+          GOOS=linux GOARCH=amd64 go build -o my-app-amd64-linux
+          tar czf my-app-amd64-linux.tar.gz my-app-amd64-linux
+
+          # ARM Windows
+          GOOS=windows GOARCH=arm go build -o my-app-arm-windows.exe
+          zip my-app-arm-windows.zip my-app-arm-windows.exe
+
+          # ARM Linux
+          GOOS=linux GOARCH=arm go build -o my-app-arm-linux
+          tar czf my-app-arm-linux.tar.gz my-app-arm-linux
 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Release-${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
-      - name: List files
-        run: ls -R
-      - name: Display directory tree
-        run: tree
-      - name: Release JAR
-        id: upload_jar
+
+      - name: Upload binaries
+        id: upload-release-assets-386-windows
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./controller/target/controller-1.0.jar
-          asset_name: controller-jar
-          asset_content_type: application/java-archive
-          
-      - name: rm Jar
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-           bash ${{secrets.SERVER_SHFILE}}/SpringBootStart-guosai.sh
-           cd /${{secrets.SERVER_FILE}}/controller/target/
-           rm -rf controller-1.0.jar
-          
-      - name: upload jar
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          source: ./controller/target/controller-1.0.jar
-          target: ${{secrets.SERVER_FILE}}/
+          asset_path: my-app-386-windows.zip
+          asset_name: my-app-386-windows.zip
+          asset_content_type: application/zip
 
-      - name: Execute shell scripts on server
-        uses: appleboy/ssh-action@master
+      - name: Upload binaries
+        id: upload-release-assets-386-linux
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-           cd /${{secrets.SERVER_FILE}}/controller/target/
-            ps -ef | grep controller-1.0.jar | grep -v grep | awk '{print $2}' | xargs kill -9 
-            nohup java -jar controller-1.0.jar > nohup.out &
-            exit
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: my-app-386-linux.tar.gz
+          asset_name: my-app-386-linux.tar.gz
+          asset_content_type: application/gzip
+
+      - name: Upload binaries
+        id: upload-release-assets-amd64-windows
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: my-app-amd64-windows.zip
+          asset_name: my-app-amd64-windows.zip
+          asset_content_type: application/zip
+
+      - name: Upload binaries
+        id: upload-release-assets-amd64-linux
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: my-app-amd64-linux.tar.gz
+          asset_name: my-app-amd64-linux.tar.gz
+          asset_content_type: application/gzip
+
+      - name: Upload binaries
+        id: upload-release-assets-arm-windows
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: my-app-arm-windows.zip
+          asset_name: my-app-arm-windows.zip
+          asset_content_type: application/zip
+
+      - name: Upload binaries
+        id: upload-release-assets-arm-linux
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: my-app-arm-linux.tar.gz
+          asset_name: my-app-arm-linux.tar.gz
+          asset_content_type: application/gzip
